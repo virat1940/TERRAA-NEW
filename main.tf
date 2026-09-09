@@ -1,1 +1,10 @@
-veryb new code
+variable "rgs" {}
+
+
+
+resource "azurerm_resource_group" "RG" {
+  for_each = var.rgs
+
+  name     = each.value.name
+  location = each.value.location
+}
