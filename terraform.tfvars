@@ -11,4 +11,4 @@ rgs = {
     location = "eastus"
   }
 
-}
+ }
