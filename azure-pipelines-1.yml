@@ -1,0 +1,73 @@
+```yaml
+pool: vistara-agent
+
+stages:
+
+- stage: terraform_init_and_validate
+  displayName: TerraformInitAndValidate
+
+  jobs:
+  - job: init_validate
+    displayName: TerraformInitAndValidate
+
+    steps:
+    - task: TerraformTask@5
+      displayName: TerraformInit
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+
+    - task: TerraformTask@5
+      displayName: TerraformValidate
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
+
+
+- stage: terraform_plan
+  displayName: TerraformPlan
+
+  jobs:
+  - job: terraform_plan
+    displayName: TerraformPlan
+
+    steps:
+    - task: TerraformTask@5
+      displayName: TerraformInit
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+
+    - task: TerraformTask@5
+      displayName: TerraformPlan
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+
+
+- stage: terraform_apply
+  displayName: TerraformApply
+
+  jobs:
+  - job: terraform_apply
+    displayName: TerraformApply
+
+    steps:
+    - task: TerraformTask@5
+      displayName: TerraformInit
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+
+    - task: TerraformTask@5
+      displayName: TerraformPlan
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+
+    - task: TerraformTask@5
+      displayName: TerraformApply
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+```
