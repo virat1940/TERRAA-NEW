@@ -15,6 +15,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
+        backendServiceArm: 'YML-VIRAT-TEST'
 
     - task: TerraformTask@5
       displayName: TerraformValidate
@@ -36,6 +37,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
+        backendServiceArm: 'YML-VIRAT-TEST'
 
     - task: TerraformTask@5
       displayName: TerraformPlan
@@ -57,6 +59,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
+        backendServiceArm: 'YML-VIRAT-TEST'
 
     - task: TerraformTask@5
       displayName: TerraformPlan
