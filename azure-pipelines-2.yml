@@ -11,11 +11,22 @@ stages:
     displayName: TerraformInitAndValidate
 
     steps:
-    - script: terraform init
+    - task: TerraformTask@5
       displayName: TerraformInit
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'YML-VIRAT-TEST'
+        backendAzureRmResourceGroupName: 'rg-virat'
+        backendAzureRmStorageAccountName: 'storagevirat'
+        backendAzureRmContainerName: 'container2'
+        backendAzureRmKey: 'terraform.tfstate'
 
-    - script: terraform validate
+    - task: TerraformTask@5
       displayName: TerraformValidate
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
 
 
 - stage: terraform_plan
@@ -26,11 +37,23 @@ stages:
     displayName: TerraformPlan
 
     steps:
-    - script: terraform init
+    - task: TerraformTask@5
       displayName: TerraformInit
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'YML-VIRAT-TEST'
+        backendAzureRmResourceGroupName: 'rg-virat'
+        backendAzureRmStorageAccountName: 'storagevirat'
+        backendAzureRmContainerName: 'container2'
+        backendAzureRmKey: 'terraform.tfstate'
 
-    - script: terraform plan
+    - task: TerraformTask@5
       displayName: TerraformPlan
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        environmentServiceNameAzureRM: 'YML-VIRAT-TEST'
 
 
 - stage: terraform_apply
@@ -41,9 +64,20 @@ stages:
     displayName: TerraformApply
 
     steps:
-    - script: terraform init
+    - task: TerraformTask@5
       displayName: TerraformInit
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'YML-VIRAT-TEST'
+        backendAzureRmResourceGroupName: 'rg-virat'
+        backendAzureRmStorageAccountName: 'storagevirat'
+        backendAzureRmContainerName: 'container2'
+        backendAzureRmKey: 'terraform.tfstate'
 
-    - script: terraform apply -auto-approve
+    - task: TerraformTask@5
       displayName: TerraformApply
-
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+        environmentServiceNameAzureRM: 'YML-VIRAT-TEST'
