@@ -1,3 +1,4 @@
+
 pool: vistara-agent
 
 stages:
@@ -10,17 +11,11 @@ stages:
     displayName: TerraformInitAndValidate
 
     steps:
-    - task: TerraformTask@5
+    - script: terraform init
       displayName: TerraformInit
-      inputs:
-        provider: 'azurerm'
-        command: 'init'
 
-    - task: TerraformTask@5
+    - script: terraform validate
       displayName: TerraformValidate
-      inputs:
-        provider: 'azurerm'
-        command: 'validate'
 
 
 - stage: terraform_plan
@@ -31,17 +26,11 @@ stages:
     displayName: TerraformPlan
 
     steps:
-    - task: TerraformTask@5
+    - script: terraform init
       displayName: TerraformInit
-      inputs:
-        provider: 'azurerm'
-        command: 'init'
 
-    - task: TerraformTask@5
+    - script: terraform plan
       displayName: TerraformPlan
-      inputs:
-        provider: 'azurerm'
-        command: 'plan'
 
 
 - stage: terraform_apply
@@ -52,15 +41,9 @@ stages:
     displayName: TerraformApply
 
     steps:
-    - task: TerraformTask@5
+    - script: terraform init
       displayName: TerraformInit
-      inputs:
-        provider: 'azurerm'
-        command: 'init'
 
-    - task: TerraformTask@5
+    - script: terraform apply -auto-approve
       displayName: TerraformApply
-      inputs:
-        provider: 'azurerm'
-        command: 'apply'
 
