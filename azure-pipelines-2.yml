@@ -16,6 +16,10 @@ stages:
         provider: 'azurerm'
         command: 'init'
         backendServiceArm: 'YML-VIRAT-TEST'
+        backendAzureRmResourceGroupName: 'rg-virat'
+        backendAzureRmStorageAccountName: 'storagevirat'
+        backendAzureRmContainerName: 'tfstate'
+        backendAzureRmKey: 'terraform.tfstate'
 
     - task: TerraformTask@5
       displayName: TerraformValidate
@@ -38,6 +42,10 @@ stages:
         provider: 'azurerm'
         command: 'init'
         backendServiceArm: 'YML-VIRAT-TEST'
+        backendAzureRmResourceGroupName: 'rg-virat'
+        backendAzureRmStorageAccountName: 'storagevirat'
+        backendAzureRmContainerName: 'tfstate'
+        backendAzureRmKey: 'terraform.tfstate'
 
     - task: TerraformTask@5
       displayName: TerraformPlan
@@ -60,6 +68,10 @@ stages:
         provider: 'azurerm'
         command: 'init'
         backendServiceArm: 'YML-VIRAT-TEST'
+        backendAzureRmResourceGroupName: 'rg-virat'
+        backendAzureRmStorageAccountName: 'storagevirat'
+        backendAzureRmContainerName: 'tfstate'
+        backendAzureRmKey: 'terraform.tfstate'
 
     - task: TerraformTask@5
       displayName: TerraformPlan
