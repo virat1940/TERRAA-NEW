@@ -1,13 +1,13 @@
 rgs = {
   rg_ronaldo = {
 
-    name     = "ronaldo"
+    name     = "rohit"
     location = "westus"
   }
 
   rg_messi = {
 
-    name     = "messi"
+    name     = "jay"
     location = "eastus"
   }
 
