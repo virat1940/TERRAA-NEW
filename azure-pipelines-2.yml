@@ -1,4 +1,3 @@
-
 pool: vistara-agent
 
 stages:
@@ -16,7 +15,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'YML-APP'
+        backendServiceArm: 'YML-VIRAT-TEST'
         backendAzureRmResourceGroupName: 'rg-virat'
         backendAzureRmStorageAccountName: 'storagevirat'
         backendAzureRmContainerName: 'container2'
@@ -42,7 +41,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'YML-APP'
+        backendServiceArm: 'YML-VIRAT-TEST'
         backendAzureRmResourceGroupName: 'rg-virat'
         backendAzureRmStorageAccountName: 'storagevirat'
         backendAzureRmContainerName: 'container2'
@@ -53,7 +52,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'plan'
-        environmentServiceNameAzureRM: 'YML-APP'
+        environmentServiceNameAzureRM: 'YML-VIRAT-TEST'
 
 
 - stage: terraform_apply
@@ -69,7 +68,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'YML-APP'
+        backendServiceArm: 'YML-VIRAT-TEST'
         backendAzureRmResourceGroupName: 'rg-virat'
         backendAzureRmStorageAccountName: 'storagevirat'
         backendAzureRmContainerName: 'container2'
@@ -80,5 +79,5 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'apply'
-        environmentServiceNameAzureRM: 'YML-APP'
+        environmentServiceNameAzureRM: 'YML-VIRAT-TEST'
 
