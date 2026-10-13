@@ -7,7 +7,7 @@ rgs = {
 
   rg_messi = {
 
-    name     = "jay"
+    name     = "jakay"
     location = "eastus"
   }
 
